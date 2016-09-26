@@ -11,7 +11,7 @@ public class MoonDollahsCoffeeShopTest {
     @Test
     public void moonDollasShop_HasVickyGemmaAndGianlucaWorking() throws Exception {
         MoonDollahsCoffeeShop moonDollahsCoffeeShop = new MoonDollahsCoffeeShop();
-        assertThat(moonDollahsCoffeeShop.getBaristas()).extracting(Barista::getName).containsExactly("vicky", "gemma", "gianluca");
+        assertThat(moonDollahsCoffeeShop.getBaristas()).extracting(Barista::getName).containsExactly("vicky", "gemma", "gianluca", "gemma");
     }
 
     @Test
@@ -25,7 +25,7 @@ public class MoonDollahsCoffeeShopTest {
         assertThat(baristas)
                 .filteredOn(barista -> barista.getName().equals("gemma"))
                 .extracting(Barista::getWorkEthic)
-                .containsOnly(new LazyWorkEthic());
+                .contains(new LazyWorkEthic());
         assertThat(baristas)
                 .filteredOn(barista -> barista.getName().equals("gianluca"))
                 .extracting(Barista::getWorkEthic)
